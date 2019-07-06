@@ -20,17 +20,8 @@ Other issues
 * 不支持在Windows中编译。由于使用GNU Autotools，构建过程需要类Unix环境。 See Emscripten
   [issue 2208](https://github.com/kripken/emscripten/issues/2208).
 * Emscripten [issue 1909](https://github.com/kripken/emscripten/issues/1909)
-曾经在多条件分之的情况下很低效。 It seems fixed now,
-but V8 JavaScript Engine [issue
-2275](http://code.google.com/p/v8/issues/detail?id=2275) prevents large switch
-statements from being optimized. Because of this, the simple, normal and
-prefetch cores are automatically transformed. Case
-statements for x86 instructions become functions, and an array of function
-pointers is used instead of the switch statements. The `--enable-funarray`
-configure option controls this and defaults to yes.
-* The same origin policy prevents access to data files when running via a
-file:// URL in some browsers. Use a web server such as
-`python -m SimpleHTTPServer` instead.
+曾经在多条件分之的情况下很低效。 现在看起来是修复了，但是Javascript V8引擎阻碍了多条件语句的优化。[issue 2275](http://code.google.com/p/v8/issues/detail?id=2275) 因此，原始的简单的内核被转换。x86指令的case语句变成函数，并使用函数指针数组代替switch语句。 使用`--enable-funarray`选项控制这个特性，默认是打开的。
+* 浏览器的同源策略使得你没发使用 file:// 这样的URL。使用 `python -m SimpleHTTPServer` 这样的Web服务器来替代。
 * In Firefox, ensure that
 [dom.max\_script\_run\_time](http://kb.mozillazine.org/Dom.max_script_run_time)
  is set to a reasonable value that will allow you to regain control in case of
