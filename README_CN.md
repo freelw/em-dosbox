@@ -11,22 +11,16 @@ DOSBOX是在GNU通用公共许可证下发布的。更多信息请看这里 [COP
 Status
 ------
 
-Em-DOSBox runs most games successfully in web browsers. Although DOSBox has
-not been fully re-structured for running as an Emscripten main loop, most
-functionality is available thanks to emterpreter sync. A few programs can
-still run into problems due to paging exceptions.
+EM-DOSBox可以在Web浏览器中成功运行大多数游戏。虽然DOSBox还没有完全重新构造为作为Emscripten主循环运行，但多亏了emterpreter sync，大多数功能都是可用的。由于分页异常，少数程序仍然会遇到问题。
 
 Other issues
 ------------
 
-* Game save files are written into the Emscripten file system, which is by
-  default an in-memory file system. Saved games will be lost when you close
-  the web page.
-* Compiling in Windows is not supported. The build process requires a
-  Unix-like environment due to use of GNU Autotools. See Emscripten
+* 游戏保存文件写入Emscripten文件系统，默认情况下，Emscripten文件系统是内存中的文件系统。关闭网页时，保存的游戏将丢失。
+* 不支持在Windows中编译。由于使用GNU Autotools，构建过程需要类Unix环境。 See Emscripten
   [issue 2208](https://github.com/kripken/emscripten/issues/2208).
 * Emscripten [issue 1909](https://github.com/kripken/emscripten/issues/1909)
-used to make large switch statements highly inefficient. It seems fixed now,
+曾经在多条件分之的情况下很低效。 It seems fixed now,
 but V8 JavaScript Engine [issue
 2275](http://code.google.com/p/v8/issues/detail?id=2275) prevents large switch
 statements from being optimized. Because of this, the simple, normal and
